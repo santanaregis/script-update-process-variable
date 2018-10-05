@@ -1,0 +1,14 @@
+{
+  "name": "script-update-process-variable",
+  "version": "1.0.0",
+  "description": "Script to update process variables",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Regis Santana",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}
