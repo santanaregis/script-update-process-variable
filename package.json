@@ -9,6 +9,8 @@
   "author": "Regis Santana",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.2.0"
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0",
+    "request": "^2.88.0"
   }
 }

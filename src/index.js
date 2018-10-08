@@ -1,20 +1,39 @@
-const http = require('http');
+// const http = require('http');
 const hostname = '127.0.0.1';
-const port = 3000;
-const server = http.createServer((req, res) => {
+const port = 3001;
 
-    const updateProcess = require('./updateProcess');
-    updateProcess.updateMotivoContato(updateProcess.buscaInstancias());
+const express = require('express');
+const app = express();
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-
-
-    res.end('Hello World\n');
-
+app.get('/', function (req, res) {
+    res.send('Script para atualizar variáveis de um processo!');
 });
-server.listen(port, hostname, () => {
+app.get('/update', function (req, res) {
+    const updateProcess = require('./updateProcess');
+    let proc = updateProcess.updateMotivoContato();
+    res.send('Realizou update!');
+});
+
+app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+
+
+//
+// const server = http.createServer((req, res) => {
+//
+//     console.log("oi");
+//     const updateProcess = require('./updateProcess');
+//     let proc = updateProcess.buscaInstancias();
+//     updateProcess.updateMotivoContato(proc);
+//
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/plain');
+//
+//
+//     res.end('Hello World\n');
+//
+// });
 
 
