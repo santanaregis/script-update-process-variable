@@ -14,6 +14,12 @@ app.get('/update', function (req, res) {
     res.send('Realizou update!');
 });
 
+app.post('/update', function (req, res) {
+    const updateProcess = require('./updateProcess');
+    let proc = updateProcess.updateMotivoContato();
+    res.send('Realizou update!');
+});
+
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });

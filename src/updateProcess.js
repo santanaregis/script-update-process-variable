@@ -3,7 +3,7 @@ const request = require('request');
 
 module.exports  = {
     buscaInstancias : async function() {
-        let listInstances = JSON.parse(await (await fetch('http://dev-camunda.fundacred.org.br:8080/engine-rest/process-instance?processDefinitionKey=pp26-atendimento-telefonico')).text());
+        let listInstances = JSON.parse(await (await fetch('http://localhost:8080/engine-rest/process-instance?processDefinitionKey=atendimento-telefonico')).text());
         return listInstances;
     },
     updateMotivoContato : function () {
@@ -15,7 +15,7 @@ module.exports  = {
                                     {"motivoContato": {"value": "teste-motivo"}},
                         "deletions": [] };
                     request({
-                        url: "http://dev-camunda.fundacred.org.br:8080/engine-rest/process-instance/"+listInstances[i].id+"/variables",
+                        url: "http://locahost:8080/engine-rest/process-instance/"+listInstances[i].id+"/variables",
                         method: "POST",
                         json: true,   // <--Very important!!!
                         body: obj
@@ -28,4 +28,10 @@ module.exports  = {
             }
         );
     }
+
+    buscaInstancias : async function() {
+        let listInstances = JSON.parse(await (await fetch('http://localhost:8080/engine-rest/process-instance?processDefinitionKey=atendimento-telefonico')).text());
+        return listInstances;
+    },
+
 };
